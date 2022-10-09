@@ -19,9 +19,7 @@ commit_message=${COMMIT_MESSAGE:-Updated Pandoc Exported Files}
 
 # build the ePub
 
-# cd ${pandoc_path}
-
-pandoc ${pandoc_path}*.md ${yml_path}*.yml -o ${export_path}${exported_file}
+pandoc ${pandoc_path}*.md ${yml_path} -o ${export_path}${exported_file}
 
 # commit the new files
 git config --global user.email 
