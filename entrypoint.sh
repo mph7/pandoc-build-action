@@ -26,6 +26,7 @@ git config --global --add safe.directory /github/workspace
 git config --global user.email 
 git fetch
 git checkout ${branch}
+git pull
 git add ${export_path}/
 git commit -m "${commit_message}"
 git push origin ${branch}
