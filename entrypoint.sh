@@ -13,18 +13,19 @@ exported_file=${EXPORTED_FILE:-export.epub}
 # Branch to push the changes to
 branch=${PANDOC_BRANCH:-main}
 # Email id used while committing to the repo
-email=${EMAIL:-kawlost83783@gmail.com}
+email=${EMAIL:-}
 # The commit message
 commit_message=${COMMIT_MESSAGE:-Updated Pandoc Exported Files}
 
 # build the ePub
-
 pandoc ${pandoc_path}*.md ${yml_path} -o ${export_path}${exported_file}
 
 # commit the new files
+git config --global --add safe.directory /github/workspace
+
 git config --global user.email 
 git fetch
 git checkout ${branch}
-git add export/
+git add ${export_path}/
 git commit -m "${commit_message}"
 git push origin ${branch}
